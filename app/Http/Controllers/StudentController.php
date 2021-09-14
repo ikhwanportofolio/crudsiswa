@@ -50,7 +50,7 @@ class StudentController extends Controller
         $data = $request->except(['_token']);
         M_Student::insert($data);
         return redirect('/')
-            ->with('success', 'Tambah Siswa Berhasil');
+            ->with('toast_success', 'Tambah Siswa Berhasil');
     }
 
     /**
@@ -102,7 +102,7 @@ class StudentController extends Controller
         $data = $request->except(['_token']);
         $item->update($data);
         return redirect('/')
-            ->with('success', 'Edit Data Berhasil');
+            ->with('toast_success', 'Edit Data Berhasil');
     }
 
     /**
@@ -116,7 +116,7 @@ class StudentController extends Controller
         $item = M_Student::findOrfail($id);
         $item->delete();
         return redirect('/')
-            ->with('success', 'Hapus Data Berhasil');
+            ->with('toast_success', 'Hapus Data Berhasil');
     }
     public function logout()
     {
